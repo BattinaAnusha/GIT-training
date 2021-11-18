@@ -1,0 +1,43 @@
+
+                                                                      LINUX ASSIGNMENT
+
+
+1.Create folder 'Test' in your home directory
+    mkdir Test 
+    cd Test
+2.Create below files
+- employeelist   
+   cat >employeelist
+ - skillset
+    cat >skillset
+3.Create folder Test2 in home directory
+    mkdir Test2
+- create symbolink and hard link for skillset file 
+    ln -s skillset slink_employeelist
+    ln -s skillset hlink_employeelist
+- delete skillset file and check if hardlink and symbolic link file exists
+    rm skillset,cat slink-employeelist
+     [no such file or directory]
+    rm skillset, cat hlink_employeelist
+    [it shows the same list in skillset]
+- explain the difference b/n symbolic and hard links
+    In slink  we delete the original file then it doesnot exists in linked file but in hlink it exists in linkedfile ans also inode number is same for originalfile and linkedfile
+4.Provide read and write permission to 'user2' group 
+    chmod 773 filename or chmod g+rw filename 
+-test if user2 group users can access the file
+    ls -l filename
+5.Revoke write permission from user2 group and test the access again
+   chmod g-w filename
+   ls -l filename
+6. Grant write permission for others and test it 
+   chmod o+w filename
+   ls -l filename
+7.Revoke write permission for others and test again
+   chmod o-w filename
+   ls -l filename
+8.Change the group of employeelist file to 'user3'
+   chgrp user2 employeelist
+9.Change ownership of the file to user5 and test
+   chown user2 employeelist
+10.check how many employees are there  (hint: use wc command)
+   employeelist | wc -l
